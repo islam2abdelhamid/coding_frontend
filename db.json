@@ -1,0 +1,36 @@
+{
+    "articles": [
+        {
+            "title": "Article 1",
+            "author": "Author 1",
+            "date": "2012-01-01",
+            "description": "Description 1",
+            "image": "https://source.unsplash.com/random",
+            "imageLabel": "Article 1"
+        },
+        {
+            "title": "Article 2",
+            "author": "Author 1",
+            "date": "2012-01-01",
+            "description": "Description 1",
+            "image": "https://source.unsplash.com/random",
+            "imageLabel": "Article 1"
+        },
+        {
+            "title": "Article 3",
+            "author": "Author 1",
+            "date": "2012-01-01",
+            "description": "Description 1",
+            "image": "https://source.unsplash.com/random",
+            "imageLabel": "Article 1"
+        },
+        {
+            "title": "Article 4",
+            "author": "Author 1",
+            "date": "2012-01-01",
+            "description": "Description 1",
+            "image": "https://source.unsplash.com/random",
+            "imageLabel": "Article 1"
+        }
+    ]
+}
