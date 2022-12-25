@@ -11,13 +11,13 @@ const validationSchema = yup.object({
 });
 
 interface EventFormProps {
-  toggleFormHandler: () => void;
+  handleCloseForm: () => void;
   initialValues: Event;
   handleFormSubmit: (event: Event) => void;
 }
 
 export const EventForm = (props: EventFormProps) => {
-  const { toggleFormHandler, initialValues, handleFormSubmit } = props;
+  const { handleCloseForm, initialValues, handleFormSubmit } = props;
 
   const formik = useFormik({
     initialValues,
@@ -28,8 +28,7 @@ export const EventForm = (props: EventFormProps) => {
   });
 
   const handleClose = () => {
-    formik.resetForm();
-    toggleFormHandler();
+    handleCloseForm();
   };
   return (
     <Dialog fullWidth maxWidth='sm' open={true}>

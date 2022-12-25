@@ -1,6 +1,6 @@
 import { Event } from 'types/event';
 import axios from 'axios';
-const BACKEND_URL = 'http://localhost:5000';
+const BACKEND_URL = 'http://localhost:3000';
 
 export const getEvents = () => axios.get<Event[]>(`${BACKEND_URL}/events`);
 

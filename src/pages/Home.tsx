@@ -6,7 +6,6 @@ import {
   CssBaseline,
   Fab,
   IconButton,
-  Zoom,
 } from '@mui/material';
 import { createEvent, deleteEvent, updateEvent } from 'api/events';
 import { EventForm } from 'components/Event';
@@ -29,14 +28,20 @@ const initialValue: Event = {
 export const Home = () => {
   const [showForm, setShowForm] = useState(false);
   const [initialValues, setInitialValues] = useState<Event>(initialValue);
-  const toggleFormHandler = useCallback(() => {
-    setShowForm((prevState) => !prevState);
+  const handleShowForm = useCallback(() => {
+    setShowForm(true);
   }, []);
+
+  const handleCloseForm = useCallback(() => {
+    setShowForm(false);
+    setInitialValues(initialValue);
+  }, []);
+
   const { fetchEvents, events, error, loading } = useFetchEvents();
 
   const handleEditButton = (event: Event) => {
     setInitialValues(event);
-    toggleFormHandler();
+    handleShowForm();
   };
 
   const handleDeleteButton = async (event: Event) => {
@@ -52,8 +57,7 @@ export const Home = () => {
     } else {
       await createEvent({ ...event, id: new Date().getTime() });
     }
-    setInitialValues(initialValue);
-    toggleFormHandler();
+    handleCloseForm();
     fetchEvents();
   };
 
@@ -80,7 +84,7 @@ export const Home = () => {
           )}
           {showForm && (
             <EventForm
-              toggleFormHandler={toggleFormHandler}
+              handleCloseForm={handleCloseForm}
               initialValues={initialValues}
               handleFormSubmit={handleFormSubmit}
             />
@@ -91,7 +95,7 @@ export const Home = () => {
               bottom: '5rem',
               right: '5rem',
             }}
-            onClick={toggleFormHandler}
+            onClick={handleShowForm}
           >
             <Fab color='info' aria-label='edit' size='medium'>
               <AddIcon />
