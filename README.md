@@ -2,3 +2,4 @@
 
 #### Run the Project
 run `docker-compose up ` to run the project
+open http://localhost:8080/
